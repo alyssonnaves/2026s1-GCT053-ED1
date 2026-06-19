@@ -94,6 +94,18 @@ No* inserir_posicao(No *head, int valor, int posicao){
     return head;
 }
 
+// remover do inicio
+No * remover_inicio(No *head){
+    if (head==NULL){ // teste se lista vazia
+        return NULL;
+    }
+    No *tmp = head;
+    head = head->prox;
+    free(tmp);
+    imprimir_lista(head);
+    return head;
+}
+
 int main(){
     No *lista = NULL;
     // inserir no inicio
@@ -103,5 +115,7 @@ int main(){
     lista = inserir_fim(lista, 100);
     lista = inserir_fim(lista, 200);
     lista = inserir_posicao(lista, 50, 3);
+    lista = remover_inicio(lista);
+
     return 0;
 }
